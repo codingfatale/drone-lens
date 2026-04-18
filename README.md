@@ -13,8 +13,8 @@ A Python-based tool for parsing and analyzing UAV flight logs across multiple fo
 ## 🧪 Data Sources
 UAV flight log datasets (sample data from Kaggle and academic sources) for testing. 
 
-## 🧭 Current Development and Roadmap
- Add XML, TXT, and PDF parsing
+## Current Development and Roadmap
+ Add XML, TXT parsing
  Batch processing of multiple files
  Export results to JSON/CSV
  Basic anomaly detection (e.g., abnormal flight durations)

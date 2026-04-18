@@ -9,6 +9,7 @@ def main():
     parser.add_argument('--file', type=str,default='data/UAV_Flight_Log.csv', help='Path to the UAV flight log CSV file')
     parser.add_argument("--type", choices=["csv", "pdf"], required=True)
     parser.add_argument('--visualize', action='store_true', help='Whether to generate visualizations')
+    parser.add_argument( '--export', type=str, help="Path to export output file (e.g., output.csv)")
     args = parser.parse_args()
 
    
@@ -31,7 +32,7 @@ def main():
 
     if data is not None:
         print(args.type + " file parsed successfully!")
-        print(data.head())  # Display the first 5 rows of the DataFrame
+        # print(data.head())  # Display the first 5 rows of the DataFrame
     else:
         print("Failed to parse the " + args.type + " file.")
 
@@ -45,6 +46,12 @@ def main():
     if args.visualize:
         plot_flight_durations(data)
         plot_duration_histogram(data)
+
+    # Export file if requested
+    if args.export:
+        data.to_csv(args.export, index=False)
+        print(f"Data exported to {args.export}")
+
 
 if __name__ == "__main__":
     main()
