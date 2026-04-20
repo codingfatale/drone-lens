@@ -3,13 +3,14 @@ from parsers.csv_parser import parse_csv
 from parsers.pdf_parser import extract_text_from_pdf, parse_pdf_to_dataframe
 from analysis.flight_metrics import calculate_flight_metrics, summarize_flights, add_pdf_duration
 from visualization.plots import plot_flight_durations, plot_duration_histogram
+from utils.export import export_data, get_clean_output
 
 def main():
     parser = argparse.ArgumentParser(description="Drone Lens")
     parser.add_argument('--file', type=str,default='data/UAV_Flight_Log.csv', help='Path to the UAV flight log CSV file')
     parser.add_argument("--type", choices=["csv", "pdf"], required=True)
     parser.add_argument('--visualize', action='store_true', help='Whether to generate visualizations')
-    parser.add_argument( '--export', type=str, help="Path to export output file (e.g., output.csv)")
+    parser.add_argument('--export', type=str,   help="Export processed data to file (CSV or JSON)")
     args = parser.parse_args()
 
    
@@ -49,8 +50,8 @@ def main():
 
     # Export file if requested
     if args.export:
-        data.to_csv(args.export, index=False)
-        print(f"Data exported to {args.export}")
+        clean_df = get_clean_output(data)
+        export_data(clean_df, args.export)
 
 
 if __name__ == "__main__":
