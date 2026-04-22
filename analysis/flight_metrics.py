@@ -5,7 +5,6 @@ def calculate_flight_metrics(df):
     """
     Cleans dataset and calculates flight duration
     """
-
     # Clean column names (remove leading/trailing spaces)
     df.columns = df.columns.str.strip()
 
