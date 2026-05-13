@@ -1,6 +1,7 @@
 import argparse
 from parsers.csv_parser import parse_csv
 from parsers.pdf_parser import extract_text_from_pdf, parse_pdf_to_dataframe
+from parsers.txt_parser import parse_text_flight_log
 from analysis.flight_metrics import calculate_flight_metrics, summarize_flights, add_pdf_duration
 from visualization.plots import plot_flight_durations, plot_duration_histogram
 from components.cli_menu import interactive_menu
@@ -9,7 +10,7 @@ from utils.export import export_data, get_clean_output
 def main():
     parser = argparse.ArgumentParser(description="Drone Lens")
     parser.add_argument('--file', type=str,default='data/UAV_Flight_Log.csv', help='Path to the UAV flight log CSV file')
-    parser.add_argument("--type", choices=["csv", "pdf"], required=True)
+    parser.add_argument("--type", choices=["csv", "pdf", "txt"], required=True)
     parser.add_argument('--plot', action='store_true', help='Whether to generate visualizations')
     parser.add_argument('--export', type=str,   help="Export processed data to file (CSV or JSON)")
     args = parser.parse_args()
@@ -41,6 +42,10 @@ def main():
         text = extract_text_from_pdf(file_path)
         data = parse_pdf_to_dataframe(text)
         data = add_pdf_duration(data)
+
+    elif file_type == "txt":
+        data = parse_text_flight_log(file_path)
+        data = calculate_flight_metrics(data)
 
     if data is not None:
         print(file_type + " file parsed successfully!")

@@ -1,0 +1,37 @@
+========================================
+SUAS PILOT LOG & FLIGHT RECORD
+========================================
+
+PILOT & CREW
+Pilot Name: John Doe
+Remote Pilot Cert #: 1234567
+Visual Observer (VO): Jane Smith
+Flight Operator: Aerial Survey Co.
+
+AIRCRAFT & MISSION
+Aircraft Make/Model: DJI Mavic 3
+Aircraft Registration #: UAS-987654
+Mission Type: Mapping & Inspection
+Flight Purpose: Commercial (Real Estate)
+
+FLIGHT DETAILS
+Date: 2026-04-29
+Takeoff Time: 10:15 AM
+Landing Time: 10:42 AM
+Total Flight Time: 27 minutes
+Battery Serial: B-01 (Start: 100% | End: 22%)
+
+ENVIRONMENTAL CONDITIONS
+Weather: Clear and sunny
+Wind Speed: 8 mph (Northerly)
+Temperature: 72° F
+Visibility: 10+ miles
+GPS Satellites: 21
+
+FLIGHT NOTES & MAINTENANCE
+Pre-flight check: All systems normal. Compass calibrated.
+Notes: Inspected northern sector of property. Strong GPS lock throughout flight. No anomalies or errors recorded.
+Maintenance Required: None. Cleaned sensor lenses after flight.
+
+Pilot Signature: ______________________
+
